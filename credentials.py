@@ -1,4 +1,4 @@
-account_sid = "Your Account Sid"
-auth_token = "Your Auth Token"
-my_cell = "+Your Cell Number"
-my_twilio = "+Your Twilio Number"
+account_sid = "AC4ffa76bea0b2fd4e6145386383762a11"
+auth_token = "977d3189722f5570d0697728a2823824"
+my_cell = "+1 445-444-0830"
+my_twilio = "+1 610 609 7570"
