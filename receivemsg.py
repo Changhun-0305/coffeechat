@@ -18,7 +18,9 @@ def sms_reply():
 
     return str(resp)
 
+
 def write_response(number, answer):
+    """Writes responses to excel"""
     for i, (key, item) in enumerate(user_dict.items()):
         if item[3] == number:
             print(key, number, answer)
