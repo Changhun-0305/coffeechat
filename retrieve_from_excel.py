@@ -1,6 +1,6 @@
 import xlrd
 
-loc = "/Users/changhunlee/Dropbox/CIS/CoffeeChat/coffeechat/coffeechat.xlsx"
+loc = "CoffeeChatSpring.xlsx"
 
 wkbk = xlrd.open_workbook(loc)
 sheet = wkbk.sheet_by_index(0)
@@ -28,8 +28,7 @@ for i in range(num_user):
 
 user_dict = dict()
 for i in range(num_user):
+	info = list_info[i]
+	indices = [names.index(x) for x in info[2] if x in names]
+	info.append(indices)
 	user_dict[names[i]] = list_info[i]
-
-for (key, item) in user_dict.items():
-	print(key)
-	print(item[3])
