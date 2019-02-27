@@ -5,7 +5,7 @@ import random
 import xlrd
 import openpyxl
 
-loc = "/Users/changhunlee/Dropbox/CIS/CoffeeChat/coffeechat/coffeechat.xlsx"
+loc = "CoffeeChatSpring.xlsx"
 
 client = Client(account_sid, auth_token)
 
@@ -28,9 +28,9 @@ def iterate_make_matches(available):
                     print("WRONG")
     return matches
 
-def check_exhausted(left, ban):
+def check_exhausted(left, ban, index):
     for i in left:
-        if i not in ban:
+        if i not in ban and index not in list(user_dict.values())[i][4]:
             return False
     return True
 
@@ -60,7 +60,7 @@ def make_matches(available):
                 print(i, key, "Not Matched")
                 break
             #all left users are banned by this user
-            if check_exhausted(left, item[4] + [i]):
+            if check_exhausted(left, item[4] + [i], i):
                 print("Exhausted")
                 break
             rand = random.choice(left)
