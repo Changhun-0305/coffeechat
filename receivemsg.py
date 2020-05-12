@@ -13,9 +13,6 @@ def sms_reply():
     number = request.form['From']
     message_body = request.form['Body']
     write_response(number, message_body)
-    # Add a message
-    #resp.message("Hello {}, you said: {}".format(number, message_body))
-
     return str(resp)
 
 

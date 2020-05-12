@@ -9,7 +9,6 @@ loc = "CoffeeChatSpring.xlsx"
 
 client = Client(account_sid, auth_token)
 
-
 def iterate_make_matches(available):
     """Make matches until 0 or 1 user is left unmatched"""
     length_left, matches = make_matches(available) #initual match
@@ -29,6 +28,7 @@ def iterate_make_matches(available):
     return matches
 
 def check_exhausted(left, ban, index):
+    """Check if search has been exhausted"""
     for i in left:
         if i not in ban and index not in list(user_dict.values())[i][4]:
             return False
@@ -86,12 +86,12 @@ def get_available(answers):
     return result
 
 def find_match(match, i):
+    """Finds a match in the list with given index"""
     for a, b in match:
         if i == a:
             return b
         if i == b:
             return a
-    print ("NOT FOUND", i)
 
 if __name__ == "__main__":
     wkbk = xlrd.open_workbook(loc)
@@ -105,8 +105,6 @@ if __name__ == "__main__":
     count = 0
     x = input("Proceed? ")
     if x == "yes":
-        print("Confirmed")
-        print("STARTED")
         for i, (key, item) in enumerate(user_dict.items()):
             if i in available:
                 match = find_match(matches, i)

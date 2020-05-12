@@ -6,8 +6,6 @@ client = Client(account_sid, auth_token)
 
 my_msg = "Hi. This is KAP coffee chat. Are you free for coffee next week? If you reply \"yes\", we will pair you up with another person tomorrow. Please reply by tonight 12am."
 
-print("send_sms ran")
-for i, (key, item) in enumerate(user_dict.items()):
-    if False:
+if __name__ == "__main__":
+    for i, (key, item) in enumerate(user_dict.items()):
         message = client.messages.create(to=item[3], from_=my_twilio, body=my_msg)
-        print("Sent: ", item[3], i)
